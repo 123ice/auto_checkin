@@ -1,0 +1,31 @@
+name: Daily Checkin
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  checkin:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x  # 指定您的 Python 版本
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt  # 如果有依赖项的话
+
+      - name: Run Checkin Script
+        run: python main.py  # 替换为您的签到脚本文件名
+        env:
+          EMAIL: ${{ secrets.EMAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          BASE_URL: ${{ secrets.BASE_URL }}
+          SCKEY: ${{ secrets.SCKEY }}
+          TG_BOT: ${{ secrets.TGBOT }}
+          TG_USER_ID: ${{ secrets.TGUSERID }}
