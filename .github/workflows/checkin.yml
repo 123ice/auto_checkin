@@ -1,8 +1,9 @@
 name: Daily Checkin
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron: "0 16 * * *"
+    - cron: "11 8 * * *"
 
 jobs:
   checkin:
