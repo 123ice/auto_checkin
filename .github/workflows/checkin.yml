@@ -23,13 +23,20 @@ jobs:
 
       - name: Run Checkin V2free
         run: python main.py  # 替换为您的签到脚本文件名
-
-      - name: Run Checkin fight
-        run: python fight.py  # 替换为您的签到脚本文件名
         env:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
           BASE_URL: ${{ secrets.BASE_URL }}
+          SCKEY: ${{ secrets.SCKEY }}
+          TG_BOT: ${{ secrets.TGBOT }}
+          TG_USER_ID: ${{ secrets.TGUSERID }}
+
+      - name: Run Checkin fight
+        run: python fight.py  # 替换为您的签到脚本文件名
+        env:
+          FIGHT_USERNAME: ${{ secrets.FIGHT_USERNAME }}
+          FIGHT_PASSWORD: ${{ secrets.FIGHT_PASSWORD }}
+          FIGHT_BASE_URL: ${{ secrets.FIGHT_BASE_URL }}
           SCKEY: ${{ secrets.SCKEY }}
           TG_BOT: ${{ secrets.TGBOT }}
           TG_USER_ID: ${{ secrets.TGUSERID }}
