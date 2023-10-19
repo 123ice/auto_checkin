@@ -21,8 +21,11 @@ jobs:
       - name: Install Dependencies
         run: pip install -r requirements.txt  # 如果有依赖项的话
 
-      - name: Run Checkin Script
+      - name: Run Checkin V2free
         run: python main.py  # 替换为您的签到脚本文件名
+
+      - name: Run Checkin fight
+        run: python fight.py  # 替换为您的签到脚本文件名
         env:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
